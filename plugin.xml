@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="phonegap.versioning" version="1.0">
-   <name>Versioning</name>
-   <description>This plugin allows you to retrieve the build number.</description>
-   <license>MIT</license>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.phonegap.versioning"
+    version="2.0.0">
 
-   <engines>
-      <engine name="cordova" version=">=3.0.0" />
-   </engines>
-
-   <js-module src="www/index.js" name="Versioning">
-      <clobbers target="Versioning" />
-   </js-module>
-
-   <!-- ios -->
-   <platform name="ios">
-      <config-file target="config.xml" parent="/*">
-         <feature name="Versioning">
-            <param name="ios-package" value="Versioning" />
-         </feature>
-      </config-file>
-      <header-file src="src/ios/VersionNumber.h" />
-      <source-file src="src/ios/VersionNumber.m" />
-   </platform>
+    <name>Versioning</name>
+    <description>This plugin allows you to retrieve the build number.</description>
+    <license>MIT</license>
+	
+    <asset src="www/index.js" target="index.js" />
+   
+    <!-- ios -->
+    <platform name="ios">
+        <plugins-plist key="VersionNumber"
+                    string="VersionNumber" />
+        <source-file src="VersionNumber.h" />
+        <source-file src="VersionNumber.m" />
+    </platform>
 </plugin>
